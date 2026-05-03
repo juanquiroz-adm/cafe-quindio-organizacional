@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo II | Fundación O.R.C.A.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --orca-green: #10b981; --orca-dark: #064e3b; }
+        body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .card-doc {
+            background: #0d0d0d;
+            border: 1px solid #1a1a1a;
+            padding: 2.5rem;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        .card-doc:hover {
+            background: #111;
+            border-color: var(--orca-green);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.15);
+        }
+        .tag {
+            font-size: 9px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border: 1px solid #333;
+            color: #888;
+            border-radius: 4px;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="px-8 py-5 border-b border-neutral-900 flex justify-between items-center bg-[#050505]/95 sticky top-0 z-50">
+        <a href="../index.html" class="text-neutral-500 hover:text-[#10b981] flex items-center gap-3 text-xs uppercase tracking-widest font-bold transition-all">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i> Volver al Portafolio Maestro
+        </a>
+        <span class="px-3 py-1 bg-[#10b981]/10 border border-[#10b981]/30 text-[#10b981] text-[10px] font-bold tracking-widest rounded uppercase hidden md:inline">
+            NIT: 900-35861-8
+        </span>
+    </nav>
+
+    <header class="py-20 px-6 border-b border-neutral-900 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-neutral-900 via-[#050505] to-[#050505]">
+        <div class="max-w-6xl mx-auto">
+            <p class="text-[#10b981] font-bold tracking-[0.3em] uppercase text-[10px] mb-4">Plan de Comunicaciones (Tercer Sector)</p>
+            <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tighter mb-6">Fundación O.R.C.A.</h1>
+            <div class="h-[2px] w-24 bg-[#10b981] mb-8"></div>
+            
+            <div class="grid md:grid-cols-2 gap-10">
+                <div>
+                    <p class="text-neutral-400 text-sm font-light leading-relaxed mb-4">
+                        <strong class="text-white">Misión:</strong> Creación de redes sociales que involucren voluntades en torno al cambio cultural en beneficio de los animales no humanos que habitan en las calles, garantizando su rehabilitación y reingreso a la sociedad.
+                    </p>
+                </div>
+                <div class="border-l border-neutral-800 pl-6">
+                    <p class="text-neutral-400 text-sm font-light leading-relaxed">
+                        <strong class="text-white">Naturaleza Organizacional:</strong> Organización sin albergue propio, sostenida por una red interdisciplinaria de voluntarios que apadrinan y gestionan recursos para atención veterinaria, esterilización y adopción.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto py-20 px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <div class="card-doc flex flex-col justify-between" onclick="alert('Documento en preparación para subida.')">
+            <div>
+                <div class="flex justify-between items-start mb-6">
+                    <i data-lucide="file-search" class="w-6 h-6 text-[#10b981]"></i>
+                    <span class="tag border-[#10b981] text-[#10b981]">T10</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Diagnóstico y Encuesta</h3>
+                <p class="text-neutral-500 text-sm mb-6">Documento Word (Fase 1). Identidad, FODA cruzado, Benchmarking y formulación del instrumento de investigación (Google Forms).</p>
+            </div>
+            <div class="mt-4 text-[10px] text-[#10b981] uppercase tracking-widest font-bold">En Desarrollo →</div>
+        </div>
+
+        <div class="card-doc opacity-50 cursor-not-allowed">
+            <div class="flex justify-between items-start mb-6">
+                <i data-lucide="bar-chart-2" class="w-6 h-6 text-neutral-600"></i>
+                <span class="tag">T11</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Tabulación de Datos</h3>
+            <p class="text-neutral-500 text-sm mb-6">Archivo Excel (Fase 2). Tabulación de las 50 respuestas reales y análisis mediante gráficos de barras.</p>
+            <div class="mt-4 text-[10px] text-neutral-600 uppercase tracking-widest font-bold">Bloqueado</div>
+        </div>
+
+        <div class="card-doc opacity-50 cursor-not-allowed">
+            <div class="flex justify-between items-start mb-6">
+                <i data-lucide="calendar" class="w-6 h-6 text-neutral-600"></i>
+                <span class="tag">T12</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Matriz del Plan</h3>
+            <p class="text-neutral-500 text-sm mb-6">Archivo Excel (Fase 3). Tácticas, cronograma, públicos, responsables y presupuesto de las estrategias de comunicación.</p>
+            <div class="mt-4 text-[10px] text-neutral-600 uppercase tracking-widest font-bold">Bloqueado</div>
+        </div>
+
+        <div class="card-doc opacity-50 cursor-not-allowed">
+            <div class="flex justify-between items-start mb-6">
+                <i data-lucide="pen-tool" class="w-6 h-6 text-neutral-600"></i>
+                <span class="tag">T13</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Entregable Final + Piezas</h3>
+            <p class="text-neutral-500 text-sm mb-6">Documento Final (Fase 4). Consolidación del proyecto y diseño de las 3 piezas gráficas AIDA para Instagram.</p>
+            <div class="mt-4 text-[10px] text-neutral-600 uppercase tracking-widest font-bold">Bloqueado</div>
+        </div>
+
+    </main>
+
+    <footer class="py-12 border-t border-neutral-900 text-center">
+        <a href="https://www.juanquiroz.site" target="_blank" class="text-neutral-600 hover:text-white transition-colors text-xs tracking-[0.3em] uppercase font-bold">
+            Juan Camilo Valderrama Quiroz // Matriz Profesional
+        </a>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

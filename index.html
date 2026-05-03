@@ -3,105 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión Organizacional | Café Quindío</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Portafolio | Comunicación Organizacional y Comunitaria</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; overflow: hidden; font-family: 'Inter', sans-serif; background: #050505; color: white; }
+        .split-container { display: flex; width: 100vw; height: 100vh; }
+        .split { flex: 1; position: relative; overflow: hidden; transition: flex 0.5s ease; cursor: pointer; }
+        .split:hover { flex: 1.2; }
+        
+        .bg-quindio { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('modulo-1-quindio/img/img-5.jpeg') center/cover; }
+        .bg-orca { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2069&auto=format&fit=crop') center/cover; }
+        
+        .content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 80%; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .btn-enter { opacity: 0; transform: translateY(20px); transition: all 0.4s ease; }
+        .split:hover .btn-enter { opacity: 1; transform: translateY(0); }
+    </style>
 </head>
-<body class="bg-[#050505] text-[#e5e5e5] font-sans antialiased overflow-x-hidden">
+<body>
 
-    <div id="main-content" class="transition-all duration-500">
-        <header class="py-24 px-6 border-b border-neutral-900 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-neutral-900 via-[#050505] to-[#050505]">
-            <div class="max-w-6xl mx-auto">
-                <p class="text-[#c5a059] font-semibold tracking-[0.3em] uppercase text-[10px] mb-4">Ecosistema de Marca // Proyecto Académico</p>
-                <h1 class="text-6xl md:text-8xl font-serif text-white tracking-tighter mb-8">Café Quindío.</h1>
-                <div class="h-[2px] w-24 bg-[#c5a059]"></div>
-            </div>
-        </header>
-
-        <main class="max-w-6xl mx-auto py-20 px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <div class="card-doc flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-start mb-6">
-                        <i data-lucide="history" class="w-6 h-6 text-[#c5a059]"></i>
-                        <span class="tag">T1</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Línea de Tiempo</h3>
-                    <p class="text-neutral-500 text-sm mb-6">Análisis histórico de los medios de comunicación en Colombia.</p>
-                </div>
-                <div class="grid grid-cols-2 gap-2 mt-auto">
-                    <button onclick="openDoc('https://juanquiroz-adm.github.io/linea-tiempo-medios/', 'external')" class="bg-[#111] hover:bg-[#c5a059] hover:text-black border border-neutral-800 text-xs font-bold uppercase tracking-widest py-3 rounded transition-all">Ver Web</button>
-                    <button onclick="openDoc('docs/Trabajo_1-JuanCamiloValderramaQuiroz.pdf', 'pdf')" class="bg-[#111] hover:bg-white hover:text-black border border-neutral-800 text-xs font-bold uppercase tracking-widest py-3 rounded transition-all">Ver PDF</button>
-                </div>
-            </div>
-
-            <div class="card-doc cursor-pointer" onclick="openDoc('docs/Trabajo_2-JuanCamiloValderramaQuiroz.pdf', 'pdf')">
-                <div class="flex justify-between items-start mb-6">
-                    <i data-lucide="file-text" class="w-6 h-6 text-[#c5a059]"></i>
-                    <span class="tag">T2</span>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-2">Diagnóstico Identidad</h3>
-                <p class="text-neutral-500 text-sm mt-3">Evaluación de la cultura organizacional y misión de la marca.</p>
-                <div class="mt-8 text-[10px] text-[#c5a059] uppercase tracking-widest font-bold">Abrir Documento →</div>
-            </div>
-
-            <div class="card-doc flex flex-col justify-between">
-                <div>
-                    <div class="flex justify-between items-start mb-6">
-                        <i data-lucide="map-pin" class="w-6 h-6 text-[#c5a059]"></i>
-                        <span class="tag">T4 / T6</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Auditoría en Campo</h3>
-                    <p class="text-neutral-500 text-sm mb-6">Evaluación física en C.C. Arkadia. Reporte cualitativo y matriz de datos cuantitativa.</p>
-                </div>
-                <div class="grid grid-cols-2 gap-2 mt-auto">
-                    <button onclick="openDoc('docs/Trabajo_6-JuanCamiloValderramaQuiroz.pdf', 'pdf')" class="bg-[#111] hover:bg-white hover:text-black border border-neutral-800 text-xs font-bold uppercase tracking-widest py-3 rounded transition-all">Reporte (PDF)</button>
-                    <button onclick="openDoc('data/T6_Matriz_Completa.xlsx', 'download')" class="bg-[#111] hover:bg-[#c5a059] hover:text-black border border-neutral-800 text-xs font-bold uppercase tracking-widest py-3 rounded transition-all">Matriz (Excel)</button>
-                </div>
-            </div>
-
-            <div class="card-doc cursor-pointer" onclick="openDoc('docs/Trabajo_8-JuanCamiloValderramaQuiroz.pdf', 'pdf')">
-                <div class="flex justify-between items-start mb-6">
-                    <i data-lucide="award" class="w-6 h-6 text-[#c5a059]"></i>
-                    <span class="tag">T8</span>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-2">Análisis de Branding</h3>
-                <p class="text-neutral-500 text-sm mt-3">Integración de "Nowstalgia", SIM, SIA y posicionamiento Premium.</p>
-                <div class="mt-8 text-[10px] text-[#c5a059] uppercase tracking-widest font-bold">Abrir Documento →</div>
-            </div>
-
-            <a href="trabajo-9/index.html" class="card-doc col-span-1 md:col-span-2 border-[#c5a059]/40 bg-[#c5a059]/5 hover:bg-[#c5a059]/10 group">
-                <div class="flex justify-between items-start mb-6">
-                    <i data-lucide="zap" class="w-8 h-8 text-[#c5a059] group-hover:scale-110 transition-transform"></i>
-                    <span class="tag border-[#c5a059] text-[#c5a059]">T9</span>
-                </div>
-                <h3 class="text-3xl font-serif text-white mb-3">Estrategia: 22 Leyes Inmutables</h3>
-                <p class="text-neutral-400 text-sm max-w-xl leading-relaxed">Laboratorio interactivo de Ries & Trout. Incluye la propuesta creativa del Tabloide "ORIGEN" con diseño editorial de alto nivel para Café Quindío.</p>
-                <div class="mt-8 text-[10px] text-[#c5a059] uppercase tracking-widest font-bold flex items-center gap-2">Entrar al Laboratorio Web <i data-lucide="arrow-right" class="w-4 h-4"></i></div>
-            </a>
-
-        </main>
-
-        <footer class="py-12 border-t border-neutral-900 text-center">
-            <a href="https://www.juanquiroz.site" target="_blank" class="text-neutral-600 hover:text-white transition-colors text-xs tracking-[0.3em] uppercase font-bold">
-                Juan Camilo Valderrama Quiroz // Matriz Profesional
-            </a>
-        </footer>
+    <div class="absolute top-6 left-1/2 -translate-x-1/2 z-50 text-center pointer-events-none">
+        <p class="text-[10px] uppercase tracking-[0.4em] text-neutral-400 font-bold">Portafolio Académico Integral</p>
+        <p class="text-xs text-neutral-500 mt-1">Juan Camilo Valderrama Quiroz</p>
     </div>
 
-    <div id="doc-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10">
-        <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" onclick="closeDoc()"></div>
-        <div class="relative w-full max-w-6xl h-full bg-[#0a0a0a] rounded-xl overflow-hidden flex flex-col shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-neutral-800">
-            <div class="p-4 border-b border-neutral-800 flex justify-between items-center bg-[#111]">
-                <span id="modal-title" class="text-[10px] uppercase tracking-widest text-neutral-400 font-bold">Visor de Documentos</span>
-                <button onclick="closeDoc()" class="text-white hover:text-[#c5a059] transition-colors"><i data-lucide="x" class="w-6 h-6"></i></button>
+    <div class="split-container">
+        <div class="split bg-quindio border-r border-neutral-800" onclick="window.location.href='modulo-1-quindio/index.html'">
+            <div class="content">
+                <span class="text-[#c5a059] text-[10px] font-bold tracking-[0.4em] uppercase block mb-4">Módulo I: Sector Privado</span>
+                <h1 class="text-5xl md:text-7xl font-serif mb-4">Café Quindío</h1>
+                <p class="text-neutral-400 text-sm font-light mb-8 max-w-md mx-auto">Diagnóstico Organizacional, Auditoría de Branding y Estrategia de Mercadeo (T1 - T9).</p>
+                <button class="btn-enter px-8 py-3 border border-[#c5a059] text-[#c5a059] hover:bg-[#c5a059] hover:text-black text-xs uppercase tracking-widest font-bold transition-colors">Ingresar al Repositorio</button>
             </div>
-            <div id="modal-body" class="flex-1 w-full bg-neutral-900 relative"></div>
+        </div>
+
+        <div class="split bg-orca" onclick="window.location.href='modulo-2-orca/index.html'">
+            <div class="content">
+                <span class="text-[#4ade80] text-[10px] font-bold tracking-[0.4em] uppercase block mb-4">Módulo II: Sector Comunitario (ONG)</span>
+                <h1 class="text-5xl md:text-7xl font-serif mb-4">Fundación Orca</h1>
+                <p class="text-neutral-400 text-sm font-light mb-8 max-w-md mx-auto">Plan de Comunicaciones, Investigación de Mercados y Diseño Gráfico Estratégico (T10 - T13).</p>
+                <button class="btn-enter px-8 py-3 border border-[#4ade80] text-[#4ade80] hover:bg-[#4ade80] hover:text-black text-xs uppercase tracking-widest font-bold transition-colors">Ingresar al Repositorio</button>
+            </div>
         </div>
     </div>
 
-    <script src="js/app.js"></script>
+    <script>lucide.createIcons();</script>
 </body>
 </html>
