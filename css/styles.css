@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.card-doc {
+    background: #0d0d0d;
+    border: 1px solid #1a1a1a;
+    padding: 2.5rem;
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-doc:hover {
+    background: #121212;
+    border-color: #c5a059;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -10px rgba(197, 160, 89, 0.1);
+}
+
+.tag {
+    font-size: 9px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border: 1px solid #333;
+    color: #888;
+    border-radius: 4px;
+    letter-spacing: 2px;
+}
+
+.blur-content {
+    filter: blur(5px) brightness(0.4);
+    pointer-events: none;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #c5a059;
+}

@@ -3,106 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T9 // 22 Leyes del Marketing | Café Quindío</title>
+    <title>T9 // Estrategia de Mercadeo | Café Quindío</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <style>
-        :root { --oro: #c5a059; }
-        body { background-color: #050505; color: #e5e5e5; font-family: 'Space Grotesk', sans-serif; }
+        :root { --oro: #c5a059; --verde: #0a2e25; }
+        body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; overflow-x: hidden; }
         .font-serif { font-family: 'Playfair Display', serif; }
-        .tabloid-section { background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('../docs/img/quindio-bg.jpg'); background-size: cover; background-attachment: fixed; }
-        .law-item { transition: all 0.3s ease; border-left: 2px solid transparent; }
-        .law-item:hover { border-left-color: var(--oro); background: rgba(255,255,255,0.02); }
+        
+        /* Cuadrícula interactiva de Leyes */
+        .law-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); gap: 10px; }
+        .law-btn { 
+            background: #111; border: 1px solid #222; color: #666; font-weight: 700; 
+            padding: 15px 0; border-radius: 8px; transition: all 0.3s ease; text-align: center; cursor: pointer;
+        }
+        .law-btn:hover { border-color: var(--oro); color: var(--oro); transform: translateY(-2px); }
+        .law-btn.active { background: var(--oro); color: #000; border-color: var(--oro); box-shadow: 0 5px 15px rgba(197,160,89,0.3); }
+
+        /* Estética Editorial Premium */
+        .tabloid-bg {
+            background: linear-gradient(90deg, #050505 0%, rgba(5,5,5,0.85) 50%, rgba(5,5,5,0.4) 100%), url('../img/img-5.jpeg');
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
+        .img-hero { box-shadow: 0 30px 60px rgba(0,0,0,0.9); border: 1px solid rgba(255,255,255,0.1); }
     </style>
 </head>
 <body>
 
-    <nav class="p-6 border-b border-neutral-900 flex justify-between items-center sticky top-0 bg-black/95 z-50">
-        <a href="../index.html" class="text-neutral-500 hover:text-white flex items-center gap-2 text-xs uppercase tracking-widest transition-all">
+    <nav class="px-8 py-5 border-b border-neutral-900 flex justify-between items-center bg-[#050505]/95 backdrop-blur-md sticky top-0 z-50">
+        <a href="../index.html" class="text-neutral-500 hover:text-[#c5a059] flex items-center gap-3 text-xs uppercase tracking-widest font-bold transition-all">
             <i data-lucide="arrow-left" class="w-4 h-4"></i> Volver al Hub
         </a>
-        <span class="text-[10px] font-bold text-oro tracking-[0.4em]">TRABAJO 09 // RIES & TROUT</span>
+        <div class="flex items-center gap-4">
+            <span class="text-[10px] font-bold text-white tracking-[0.3em] uppercase hidden md:inline">22 Leyes Inmutables</span>
+            <span class="px-3 py-1 bg-[#c5a059]/10 border border-[#c5a059]/30 text-[#c5a059] text-[10px] font-bold tracking-widest rounded uppercase">Trabajo 09</span>
+        </div>
     </nav>
 
-    <section class="max-w-5xl mx-auto py-24 px-6">
-        <h1 class="text-5xl md:text-7xl font-serif text-white mb-20 text-center italic leading-tight">Las 22 Leyes Inmutables <br><span class="text-neutral-600 not-italic text-3xl font-light">Análisis Organizacional</span></h1>
-        
-        <div class="space-y-4" id="laws-grid">
-            </div>
-    </section>
+    <section class="max-w-6xl mx-auto py-16 px-6">
+        <div class="mb-12 border-b border-neutral-900 pb-10">
+            <h1 class="text-5xl md:text-7xl font-serif text-white mb-4">Análisis Organizacional.</h1>
+            <p class="text-neutral-400 font-light text-lg">Las 22 Leyes del Marketing aplicadas a la gestión estratégica.</p>
+        </div>
 
-    <section class="tabloid-section py-40 border-y border-neutral-900 px-6 text-center">
-        <div class="max-w-4xl mx-auto">
-            <span class="text-oro font-bold tracking-[0.5em] uppercase text-[10px] mb-12 block">Propuesta Estratégica // Ley del Enfoque</span>
-            
-            <div class="mb-20">
-                <h3 class="text-neutral-400 text-xl font-light mb-4 italic">Hay lugares que no se visitan...</h3>
-                <h2 class="text-7xl md:text-9xl font-serif text-white leading-none">Se saborean.</h2>
+        <div class="flex flex-col lg:flex-row gap-12 items-start">
+            <div class="w-full lg:w-1/3">
+                <p class="text-[10px] text-neutral-500 uppercase tracking-widest font-bold mb-4">Seleccione una ley:</p>
+                <div class="law-grid" id="laws-nav"></div>
             </div>
 
-            <div class="border-y border-white/10 py-16 my-20">
-                <h1 class="text-9xl md:text-[14rem] font-bold tracking-tighter text-white">ORIGEN</h1>
-                <p class="text-oro tracking-[1.2em] text-xs md:text-lg font-light uppercase mt-6">Café Quindío desde 1992</p>
-            </div>
-
-            <div class="text-left grid md:grid-cols-2 gap-16 items-end">
-                <p class="text-neutral-400 font-light leading-relaxed text-lg">
-                    Apropiarse de una palabra es el poder supremo del marketing. Café Quindío no vende cafeína, vende <span class="text-white font-bold">ORIGEN</span>. Esta pieza digital materializa la "Nowstalgia" y corrige la disonancia visual en PDV.
-                </p>
-                <div class="text-right">
-                    <p class="text-white font-bold text-lg mb-1">Juan Camilo Valderrama Q.</p>
-                    <p class="text-neutral-500 text-sm uppercase tracking-widest">Estratega de Comunicación</p>
+            <div class="w-full lg:w-2/3 sticky top-32">
+                <div id="law-display" class="bg-[#0d0d0d] border border-[#1a1a1a] rounded-xl p-8 md:p-12 min-h-[400px] flex flex-col justify-center relative overflow-hidden">
+                    <div class="absolute -top-10 -right-10 text-[150px] font-serif text-[#111] opacity-50 select-none z-0" id="bg-number">?</div>
+                    <div class="relative z-10 text-center">
+                        <i data-lucide="mouse-pointer-click" class="w-12 h-12 text-neutral-700 mx-auto mb-4"></i>
+                        <p class="text-neutral-500 font-light">Interactúe con el panel numérico izquierdo para desplegar el análisis teórico y los casos de estudio.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <section class="tabloid-bg py-32 mt-20 border-t border-neutral-900 relative">
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            
+            <div class="mb-16">
+                <span class="inline-block px-4 py-1 border border-[#c5a059] text-[#c5a059] text-[10px] font-bold uppercase tracking-widest mb-6 rounded-full">Fase 2: Propuesta Creativa (Ley del Enfoque)</span>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7">
+                    <h3 class="text-neutral-400 text-2xl md:text-3xl font-light mb-2 italic font-serif">Hay lugares que no se visitan...</h3>
+                    <h2 class="text-5xl md:text-7xl font-serif text-white mb-10">Se saborean.</h2>
+                    
+                    <h1 class="text-7xl md:text-9xl font-bold tracking-tighter text-white mb-2" style="text-shadow: 0 10px 30px rgba(0,0,0,0.8);">ORIGEN</h1>
+                    <p class="text-[#c5a059] tracking-[0.5em] text-xs font-bold uppercase mb-12">Café Quindío desde 1992</p>
+                    
+                    <div class="bg-black/60 backdrop-blur-md p-8 border-l-2 border-[#c5a059] rounded-r-xl">
+                        <h4 class="text-white text-sm font-bold uppercase tracking-widest mb-3 flex items-center gap-2"><i data-lucide="crosshair" class="w-4 h-4 text-[#c5a059]"></i> Justificación Estratégica</h4>
+                        <p class="text-neutral-300 font-light leading-relaxed text-sm mb-4">
+                            <strong>El Diagnóstico:</strong> La auditoría en C.C. Arkadia (T4) reveló el uso de tableros borrables que abaratan el SIA (Sistema de Identidad Audiovisual).
+                        </p>
+                        <p class="text-neutral-300 font-light leading-relaxed text-sm">
+                            <strong>La Solución 5.0:</strong> Aplicando la <em>Ley del Enfoque</em>, la marca se apropia de la palabra <strong>ORIGEN</strong>. Este diseño (Material PLV / Pantalla Digital) materializa el concepto de <em>"Nowstalgia"</em> al combinar la estética premium del empaque Gran Reserva con la calidez arquitectónica de la tienda, cerrando la brecha comunicacional.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative h-[500px] flex items-center justify-center">
+                    <img src="../img/img-2.jpeg" alt="Café Gran Reserva" class="w-full max-w-[350px] object-cover rounded-xl img-hero transform hover:scale-105 transition-transform duration-700 z-20 absolute">
+                    <div class="absolute w-[400px] h-[400px] border border-[#c5a059]/20 rounded-full animate-[spin_20s_linear_infinite] z-0"></div>
+                    <div class="absolute w-[300px] h-[300px] border border-[#c5a059]/10 rounded-full animate-[spin_15s_linear_infinite_reverse] z-0"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#050505] py-10 text-center border-t border-neutral-900">
+        <p class="text-neutral-600 text-[10px] uppercase tracking-[0.2em] font-bold">Investigación, Diseño y Desarrollo: Juan Camilo Valderrama Q. // 2026</p>
+    </footer>
+
     <script>
         lucide.createIcons();
+        
+        // Base de datos de las 22 Leyes
         const laws = [
-            { n: 1, name: "Liderazgo", def: "Es mejor ser el primero que intentar convencer de ser el mejor.", ex: "Coca-Cola", just: "Primer refresco de cola, mantiene el dominio por primacía mental." },
-            { n: 2, name: "Categoría", def: "Si no puede ser el primero, cree una nueva categoría.", ex: "Red Bull", just: "Inventaron las bebidas energéticas en lugar de competir con refrescos." },
-            { n: 3, name: "Mente", def: "Ser el primero en la mente antes que en el punto de venta.", ex: "IBM", just: "No fueron los primeros creadores, pero sí los primeros en posicionarse." },
-            { n: 4, name: "Percepción", def: "El marketing es una batalla de percepciones, no de productos.", ex: "Toyota vs Honda", just: "En Japón Honda es motos; en EE.UU. es autos. La percepción cambia el mercado." },
-            { n: 5, name: "Enfoque", def: "Apropiarse de una palabra en la mente del prospecto.", ex: "Volvo", just: "Se adueñó de 'Seguridad', impidiendo que otros usen ese concepto." },
-            { n: 6, name: "Exclusividad", def: "Dos empresas no pueden poseer la misma palabra.", ex: "Duracell", just: "Energizer intentó quitarle 'larga duración' y fracasó." },
-            { n: 7, name: "Escalera", def: "La estrategia depende del peldaño que ocupes en la mente.", ex: "Avis", just: "Al ser segundos, su lema fue 'Nos esforzamos más'." },
-            { n: 8, name: "Dualidad", def: "A la larga, todo mercado se convierte en una carrera de dos.", ex: "Nike vs Adidas", just: "La competencia global se reduce a estos dos gigantes deportivos." },
-            { n: 9, name: "Opuesto", def: "La estrategia del segundo depende de las fortalezas del líder.", ex: "Pepsi", just: "Se posicionó como 'lo nuevo' frente a lo 'clásico' de Coca-Cola." },
-            { n: 10, name: "División", def: "Con el tiempo, una categoría se dividirá en dos o más.", ex: "Sector Autos", just: "Pasó de solo 'autos' a SUV, Eléctricos, Deportivos, etc." },
-            { n: 11, name: "Perspectiva", def: "Los efectos del marketing se ven a largo plazo.", ex: "Rebajas Sears", just: "Aumentan ventas hoy, pero destruyen valor de marca a futuro." },
-            { n: 12, name: "Extensión de línea", def: "Presión interna por poner el nombre a todo, suele fracasar.", ex: "A-1 Salsa", just: "Falla al intentar ser salsa para aves; en la mente es para res." },
-            { n: 13, name: "Sacrificio", def: "Se debe renunciar a algo para conseguir algo.", ex: "FedEx", just: "Sacrificaron rutas para enfocarse solo en entregas 'overnight'." },
-            { n: 14, name: "Atributos", def: "Por cada atributo, hay otro opuesto igual de efectivo.", ex: "Crest vs Close-up", just: "Compitieron con 'aliento fresco' frente a 'anticaries'." },
-            { n: 15, name: "Franqueza", def: "Al admitir algo negativo, el cliente reconoce lo positivo.", ex: "Listerine", just: "Admitieron el mal sabor para validar su poder antiséptico." },
-            { n: 16, name: "Singularidad", def: "Solo una jugada atrevida produce resultados sustanciales.", ex: "General Motors", just: "No sirve mejorar un poco; se requiere un ataque singular." },
-            { n: 17, name: "Impredecible", def: "No se puede predecir el futuro del mercado.", ex: "IBM vs PC", just: "No previeron el éxito de las PC domésticas de Apple." },
-            { n: 18, name: "Éxito", def: "El éxito suele llevar a la arrogancia y esta al fracaso.", ex: "Donald Trump", just: "Puso su nombre a todo, diluyendo su marca original." },
-            { n: 19, name: "Fracaso", def: "El fracaso debe ser reconocido rápido para cambiar.", ex: "Ford Edsel", just: "Reconocieron el desastre rápido para minimizar pérdidas." },
-            { n: 20, name: "Nota Sensacionalista", def: "La realidad es lo contrario a como aparece en prensa.", ex: "Segway", just: "Mucho hype en medios, pero comercialmente fue un fracaso." },
-            { n: 21, name: "Aceleración", def: "Los programas se construyen sobre tendencias, no modas.", ex: "Barbie", just: "Ha durado décadas adaptándose, no fue una moda pasajera." },
-            { n: 22, name: "Recursos", def: "Sin financiación, la mejor idea no despegará.", ex: "Steve Jobs", just: "Necesitó a Markkula para financiar el crecimiento de Apple." }
+            { n: 1, name: "La Ley del Liderazgo", def: "Es mejor ser el primero en llegar a la mente que intentar convencer de que se es el mejor.", ex: "Coca-Cola", just: "Fue el primer refresco de cola. A pesar de las pruebas de sabor, mantiene el dominio por primacía mental." },
+            { n: 2, name: "La Ley de la Categoría", def: "Si no puede ser el primero, cree una nueva categoría en la que pueda ser el líder.", ex: "Red Bull", just: "No compitieron contra Coca-Cola; inventaron y lideraron la categoría de 'bebidas energéticas'." },
+            { n: 3, name: "La Ley de la Mente", def: "Ser el primero en la mente del consumidor es más importante que ser el primero en el punto de venta.", ex: "IBM", just: "Otras empresas crearon computadoras antes, pero IBM logró grabarse primero en la mente del consumidor." },
+            { n: 4, name: "La Ley de la Percepción", def: "El marketing no es una batalla de productos, sino una batalla de percepciones en la mente.", ex: "Honda en Japón vs EE.UU.", just: "En Japón se percibe como fabricante de motos, en EE.UU. como autos de calidad. El producto es el mismo." },
+            { n: 5, name: "La Ley del Enfoque", def: "El concepto más poderoso en marketing es apropiarse de una palabra en la mente del prospecto.", ex: "Volvo", just: "Se adueñó indiscutiblemente de la palabra 'Seguridad', bloqueando a la competencia." },
+            { n: 6, name: "La Ley de la Exclusividad", def: "Dos empresas no pueden poseer la misma palabra o concepto en la mente del cliente.", ex: "Duracell vs Energizer", just: "Energizer intentó quitarle 'larga duración' a Duracell y fracasó porque la mente ya estaba estructurada." },
+            { n: 7, name: "La Ley de la Escalera", def: "La estrategia a utilizar depende directamente del peldaño que la marca ocupe en la escalera mental.", ex: "Avis", just: "Avis aceptó ser el #2 detrás de Hertz y su lema 'Nos esforzamos más' fue un éxito rotundo." },
+            { n: 8, name: "La Ley de la Dualidad", def: "A la larga, todo mercado y categoría se convierte en una carrera de solo dos grandes participantes.", ex: "Nike vs Adidas", just: "La competencia global de calzado deportivo se decantó en la guerra entre estas dos gigantes." },
+            { n: 9, name: "La Ley de lo Opuesto", def: "Si opta por el segundo puesto, su estrategia está determinada por las fortalezas del líder.", ex: "Pepsi", just: "Coca-Cola era 'lo clásico', así que Pepsi se posicionó como lo opuesto: 'La nueva generación'." },
+            { n: 10, name: "La Ley de la División", def: "Con el tiempo, una categoría se dividirá para convertirse en dos o más categorías distintas.", ex: "El Automóvil", just: "Dejó de ser 'coches' para dividirse en SUV, deportivos, eléctricos, sedanes, con líderes distintos." },
+            { n: 11, name: "La Ley de la Perspectiva", def: "Los efectos del marketing se ven a largo plazo; las acciones a corto plazo suelen ser perjudiciales.", ex: "Rebajas Constantes", just: "Aumentan las ventas hoy, pero destruyen el prestigio y el valor de la marca a largo plazo." },
+            { n: 12, name: "La Ley de la Extensión de Línea", def: "Existe una presión interna irresistible para extender el valor de la marca a otros productos, lo cual fracasa.", ex: "A-1 Salsa para Aves", just: "A-1 significa salsa para carne. Al intentar venderla para pollo, la mente del consumidor lo rechazó." },
+            { n: 13, name: "La Ley del Sacrificio", def: "Se debe renunciar a algo (línea, mercado meta o cambio constante) para poder conseguir algo.", ex: "FedEx", just: "Sacrificaron entregas normales para enfocarse exclusivamente en el servicio 'De la noche a la mañana'." },
+            { n: 14, name: "La Ley de los Atributos", def: "Por cada atributo que posee una marca, hay otro atributo opuesto que es igual de efectivo.", ex: "Crest vs Close-up", just: "Crest se enfocó en 'anticaries'. Close-up atacó con el atributo opuesto: 'buen aliento y blancura'." },
+            { n: 15, name: "La Ley de la Franqueza", def: "Cuando admita algo negativo en su marca, el prospecto inmediatamente le reconocerá algo positivo.", ex: "Listerine", just: "Admitieron su terrible sabor, lo que convenció al cliente de que era médicamente efectivo." },
+            { n: 16, name: "La Ley de la Singularidad", def: "En cada situación, solo un golpe audaz y único producirá resultados sustanciales.", ex: "Autos Japoneses y Alemanes", just: "Atacaron a General Motors por los flancos (autos pequeños baratos y lujo caro) en vez de un ataque frontal." },
+            { n: 17, name: "La Ley de lo Impredecible", def: "Salvo que escriba los planes de sus competidores, no podrá predecir el futuro del mercado.", ex: "IBM", just: "Fracasó al intentar predecir el mercado de PCs, siendo sorprendidos por la agilidad de Apple y Microsoft." },
+            { n: 18, name: "La Ley del Éxito", def: "El éxito suele llevar a la arrogancia de la marca, y la arrogancia conduce directo al fracaso.", ex: "Donald Trump", just: "Su arrogancia lo llevó a poner su nombre a absolutamente todo, diluyendo el valor de su marca." },
+            { n: 19, name: "La Ley del Fracaso", def: "El fracaso es parte de la vida organizacional; las empresas deben reconocer errores rápido y cambiar.", ex: "Ford Edsel", just: "Ford reconoció rápido que el auto era un desastre, lo sacó del mercado y minimizó las pérdidas." },
+            { n: 20, name: "La Ley de la Nota Sensacionalista", def: "A menudo, la situación real del mercado es exactamente lo contrario de cómo aparece en la prensa.", ex: "El Segway", just: "La prensa predijo que cambiaría las ciudades, pero comercialmente fue un fracaso absoluto." },
+            { n: 21, name: "La Ley de la Aceleración", def: "Los programas que triunfan no se construyen sobre modas pasajeras, sino sobre tendencias sólidas.", ex: "Barbie", just: "No fue una moda explosiva y pasajera; es una tendencia que ha evolucionado a lo largo de décadas." },
+            { n: 22, name: "La Ley de los Recursos", def: "Sin una financiación adecuada, ni siquiera la mejor idea de marketing logrará despegar del suelo.", ex: "Steve Jobs", just: "Tuvo una gran idea con Apple, pero necesitó millones de dólares de Mike Markkula para financiar el marketing." }
         ];
 
-        const grid = document.getElementById('laws-grid');
-        laws.forEach(l => {
-            grid.innerHTML += `
-                <div class="law-item p-6 bg-neutral-900/20 border border-neutral-900 rounded-xl">
-                    <div class="flex flex-col md:flex-row gap-6 md:items-center">
-                        <span class="text-oro font-bold text-xs w-16">№ ${l.n}</span>
-                        <div class="flex-1">
-                            <h3 class="text-white font-bold text-lg mb-1 uppercase tracking-tighter">${l.name}</h3>
-                            <p class="text-neutral-400 text-sm italic font-light">${l.def}</p>
-                        </div>
-                        <div class="flex-1 border-l border-neutral-800 pl-6">
-                            <span class="text-neutral-600 text-[10px] uppercase font-bold block mb-1">Caso: ${l.ex}</span>
-                            <p class="text-neutral-500 text-xs">${l.just}</p>
-                        </div>
+        const nav = document.getElementById('laws-nav');
+        const display = document.getElementById('law-display');
+
+        // Renderizar Cuadrícula
+        laws.forEach((l, idx) => {
+            const btn = document.createElement('div');
+            btn.className = 'law-btn';
+            btn.innerText = l.n;
+            btn.onclick = () => showLaw(idx, btn);
+            nav.appendChild(btn);
+        });
+
+        // Mostrar Ley (Evitando scroll)
+        function showLaw(idx, btnElement) {
+            document.querySelectorAll('.law-btn').forEach(b => b.classList.remove('active'));
+            btnElement.classList.add('active');
+            
+            const l = laws[idx];
+            display.innerHTML = `
+                <div class="absolute -top-10 -right-5 text-[150px] font-serif text-[#111] opacity-60 select-none z-0">${l.n}</div>
+                <div class="relative z-10 animate-[fadeIn_0.3s_ease-out]">
+                    <span class="text-[#c5a059] font-bold tracking-[0.2em] text-[10px] uppercase mb-3 block"><i data-lucide="book-open" class="inline w-3 h-3 mb-0.5"></i> Ley Inmutable Número ${l.n}</span>
+                    <h2 class="text-3xl md:text-5xl font-serif text-white mb-6 leading-tight">${l.name}</h2>
+                    <div class="bg-black/50 p-6 border-l-2 border-neutral-700 mb-6 rounded-r-lg">
+                        <p class="text-neutral-300 font-light leading-relaxed text-sm">"${l.def}"</p>
+                    </div>
+                    <div class="pt-6 border-t border-neutral-800">
+                        <span class="text-white text-xs uppercase font-bold tracking-widest block mb-2">Caso Práctico: <span class="text-[#c5a059]">${l.ex}</span></span>
+                        <p class="text-neutral-500 text-sm leading-relaxed">${l.just}</p>
                     </div>
                 </div>
             `;
-        });
+            lucide.createIcons();
+        }
     </script>
 </body>
 </html>
