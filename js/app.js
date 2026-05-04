@@ -8,7 +8,12 @@ const modalTitle = document.getElementById('modal-title');
 function openDoc(url, type) {
     modal.classList.remove('hidden');
     content.classList.add('blur-content');
-    modalTitle.innerText = url.split('/').pop();
+
+    // LIMPIEZA DE TÍTULO NIVEL 5.0 (Regex)
+    let cleanTitle = url.split('/').pop();
+    cleanTitle = cleanTitle.replace(/\.pdf|\.xlsx|\.docx/g, ''); // Quita extensiones
+    cleanTitle = cleanTitle.replace(/[_-]/g, ' '); // Cambia guiones por espacios
+    modalTitle.innerText = cleanTitle.toUpperCase();
 
     if (type === 'pdf') {
         modalBody.innerHTML = `<iframe src="${url}" class="w-full h-full border-none"></iframe>`;
