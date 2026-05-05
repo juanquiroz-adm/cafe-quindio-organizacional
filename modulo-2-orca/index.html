@@ -61,16 +61,19 @@
                 <div class="mt-auto pt-6 text-[10px] text-[#10b981] uppercase tracking-widest font-bold">Abrir Documento →</div>
             </div>
 
-            <div class="card-doc flex flex-col justify-between h-full opacity-50 cursor-not-allowed">
+            <div class="card-doc flex flex-col justify-between h-full">
                 <div>
                     <div class="flex justify-between items-start mb-6">
-                        <i data-lucide="bar-chart-2" class="w-6 h-6 text-neutral-600"></i>
-                        <span class="tag">T11</span>
+                        <i data-lucide="bar-chart-2" class="w-6 h-6 text-[#10b981]"></i>
+                        <span class="tag border-[#10b981] text-[#10b981]">T11</span>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">Tabulación de Datos</h3>
-                    <p class="text-neutral-500 text-sm mb-6">Archivo Excel (Fase 2). Tabulación de respuestas reales y análisis mediante gráficos de barras.</p>
+                    <p class="text-neutral-500 text-sm mb-6">Tabulación de 55 respuestas orgánicas. Incluye Dashboard de visualización en Excel y análisis estratégico documental.</p>
                 </div>
-                <div class="mt-auto pt-6 text-[10px] text-neutral-600 uppercase tracking-widest font-bold">Bloqueado (12 Mayo)</div>
+                <div class="grid grid-cols-2 gap-4 mt-auto">
+                    <button onclick="openDoc('docs/Trabajo_11_JuanCamiloValderramaQuiroz.pdf', 'pdf')" class="bg-[#111] hover:bg-white hover:text-black border border-neutral-800 text-[10px] font-bold uppercase tracking-widest py-3 rounded transition-all">Ver PDF</button>
+                    <button onclick="openDoc('data/T11_Dashboard_Analisis_ORCA.xlsx', 'download')" class="bg-[#111] hover:bg-[#10b981] hover:text-black border border-neutral-800 text-[10px] font-bold uppercase tracking-widest py-3 rounded transition-all">Ver Excel</button>
+                </div>
             </div>
 
             <div class="card-doc flex flex-col justify-between h-full opacity-50 cursor-not-allowed">
